@@ -28,7 +28,7 @@
     %ul#previous_builds
       - date = nil
       - @builds.each do |build|
-        - build_date = build.started_at ? build.started_at.strftime('%b %-d, %Y') : nil
+        - build_date = (build.started_at || Time.now).strftime('%b %-d, %Y')
         - unless date == build_date
           - date = build_date
           %li.builds-group<
